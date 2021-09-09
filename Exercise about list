@@ -1,0 +1,94 @@
+#Function Person donate max
+def MaxDonate(name, amounts):
+    if name == []:
+        return  
+    else: 
+        MaxD = amounts[0]
+        NameD = name[0] 
+        for i in range(1, len(name)):
+            if amounts[i] > MaxD:
+                MaxD = amounts[i]
+                NameD = name[i]
+        return ( NameD, MaxD )
+
+#Function Person donate Min
+def MinDonate(name, amounts):
+    if name == []:
+        return
+    else:
+        MinD = amounts[0]
+        NameD = name[0] 
+        for i in range(1, len(name)):
+            if amounts[i] < MinD:
+                MinD = amounts[i]
+                NameD = name[i]
+        return ( NameD, MinD )
+
+#Function Average donate
+def Average(amounts):
+    if amounts == []:
+        return 0
+    else:
+        ave = 0
+        dip = len(amounts)
+        for i in range (0, dip):
+            ave = amounts[i] + ave
+        ave = ave / dip
+        return ave
+
+#Check info people donate V1
+def CheckV1(ten, money, name, amounts):
+    for i in range (len(name)):
+        if ten == name[i] and money == amounts[i]:
+            return True
+    return False
+    
+#check info people donate V2
+def CheckV2(ten, money, name, amounts):
+    if ten in name and money in amounts:
+        return True
+    else:
+        return False
+
+
+#list1
+name1  = ["Duong", "Mai", "Hoa", "Dao"]
+amounts1 = [109000, 60000, 10000, 1200000 ]
+
+#Call fuction max
+MaxD1 = MaxDonate(name1, amounts1)
+print(MaxD1 ,"are the biggest donate")
+
+#Call fuction min
+MinD1 = MinDonate(name1, amounts1)
+print(MinD1 ,"are the least donate")
+
+#Call function Average
+AveD1 = Average(amounts1)
+print("Average of donate are: ", AveD1)
+
+#Call fuction check
+check1 = CheckV2('minh', 19000, name1, amounts1)
+print(check1)
+
+#list2
+name2 = []
+amounts2 = []
+
+#Call function max
+MaxD2 = MaxDonate(name2, amounts2)
+print(MaxD2 ,"are the biggest donate")
+
+#Call fuction min
+MinD2 = MinDonate(name2, amounts2)
+print(MinD2 ,"are the least donate")
+
+#Call function Average
+AveD2 = Average(amounts2)
+print("Average of donate are: ", AveD2)
+
+#Call fuction check
+check2 = CheckV1('minh', 19000, name2, amounts2)
+print(check2)
+
+
